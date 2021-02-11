@@ -1,2 +1,2 @@
 # memories-mern
-project for learning mongo db and redux
+project for learning mongodb and redux with react and node.
