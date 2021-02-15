@@ -1,2 +1,3 @@
 # memories-mern
-project for learning mongodb and redux with react and node.
+
+project for learning mongodb, redux and express. made following a tutorial on youtube.

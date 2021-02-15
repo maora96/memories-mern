@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app._router.use("/user", userRoutes);
 
 const CONNECTION_URL =
   "mongodb+srv://maora:maora123@cluster0.4cilk.mongodb.net/<dbname>?retryWrites=true&w=majority";
@@ -23,8 +25,10 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() =>
-    app.listen(PORT, () => console.log(`server running on port: ${PORT}`))
+    app.listen(PORT, () =>
+      console.log(`Server Running on Port: http://localhost:${PORT}`)
+    )
   )
-  .catch((error) => console.log(error.message));
+  .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set("useFindAndModify", false);
